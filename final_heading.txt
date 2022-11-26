@@ -1,4 +1,2 @@
-19
 covid
-including
 lockdown
