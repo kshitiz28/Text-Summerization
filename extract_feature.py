@@ -9,9 +9,9 @@ import string
 
 def extractandfeature(name):
     with open(name) as file_in:
-     lines = []
-    for line in file_in:
-        lines.append(line)
+        lines = []
+        for line in file_in:
+            lines.append(line)
 
     doc_test = []
     for i in range(len(lines)):

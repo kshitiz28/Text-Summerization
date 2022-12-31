@@ -1,3 +1,6 @@
 from extract_feature import extractandfeature
 
-print(extractandfeature('sample.txt'))
+out_final=extractandfeature('sample.txt')
+
+significant_words= out_final[0]
+extract_summ = out_final[1]
