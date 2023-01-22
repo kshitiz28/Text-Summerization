@@ -72,4 +72,9 @@ def extractandfeature(name,compression):
     summ_final = '.'.join(list_final) + "."
     significant_final = ' '.join(index_list)
 
-    return [summ_final,significant_final]
+    res = {
+        "summary": summ_final,
+        "significant_words": significant_final
+    }
+
+    return res

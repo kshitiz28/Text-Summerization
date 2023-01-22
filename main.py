@@ -12,8 +12,8 @@ World Soil Day 2022 and its campaign "Soils: Where food begins" aims to raise aw
 
 out_final=extractandfeature(sample_str,0.8)
 
-significant_words= out_final[0]
-extract_summ = out_final[1]
+significant_words = out_final['significant_words']
+extract_summ = out_final['summary']
 
 print(significant_words)
 print(extract_summ)
