@@ -54,9 +54,9 @@ def extractandfeature(name,compression):
     index_list = list(sentence1.index.values)
 
     words_after_compression = []
-    if compression.upper() == 'SMALL':
+    if compression <= 0.33:
         words_after_compression.append(index_list[0])
-    elif compression.upper() == 'MEDIUM':
+    elif compression <= 0.66 and compression > 0.33:
         words_after_compression.append(index_list[0])
         words_after_compression.append(index_list[1])
     else:
