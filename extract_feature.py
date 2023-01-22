@@ -8,10 +8,8 @@ import string
 
 
 def extractandfeature(name,compression):
-    with open(name) as file_in:
-        lines = []
-        for line in file_in:
-            lines.append(line)
+
+    lines=name.split(".")
 
     doc_test = []
     for i in range(len(lines)):
