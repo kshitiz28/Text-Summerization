@@ -7,7 +7,7 @@ from gensim.parsing.preprocessing import remove_stopwords
 import string
 
 
-def extractandfeature(name):
+def extractandfeature(name,compression):
     with open(name) as file_in:
         lines = []
         for line in file_in:
@@ -49,13 +49,24 @@ def extractandfeature(name):
     encoding_matrix['abs_topic1'] = np.abs(encoding_matrix)
     encoding_matrix.sort_values('abs_topic1', ascending=False)
     final_matrix = encoding_matrix.sort_values('abs_topic1', ascending=False)
-    sentence1 = final_matrix[final_matrix["abs_topic1"] >= 0.2]
+    # sentence1 = final_matrix[final_matrix["abs_topic1"] >= 0.2]
+    sentence1 = final_matrix.head(4)
     index_list = list(sentence1.index.values)
+
+    words_after_compression = []
+    if compression.upper() == 'SMALL':
+        words_after_compression.append(index_list[0])
+    elif compression.upper() == 'MEDIUM':
+        words_after_compression.append(index_list[0])
+        words_after_compression.append(index_list[1])
+    else:
+        words_after_compression.extend(index_list)
+
 
     final_conclusion = []
     for i in range(len(final_doc)):
-        for j in range(len(index_list)):
-            if index_list[j] in final_doc[i]:
+        for j in range(len(words_after_compression)):
+            if words_after_compression[j] in final_doc[i]:
                 final_conclusion.append(final_doc[i])
 
     list_final = list(set(final_conclusion))
