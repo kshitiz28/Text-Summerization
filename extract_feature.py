@@ -69,4 +69,7 @@ def extractandfeature(name,compression):
 
     list_final = list(set(final_conclusion))
 
-    return [index_list, list_final]
+    summ_final = '.'.join(list_final) + "."
+    significant_final = ' '.join(index_list)
+
+    return [summ_final,significant_final]
