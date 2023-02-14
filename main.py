@@ -1,6 +1,4 @@
 from extract_feature import extractandfeature
-from HuggingFaceSummary import abs_summary
-
 
 sample_str = """The World Soil Day is being observed today globally as well as in Nepal with the objective of raising public awareness on the significance of healthy soil and for the sustainable management of the soil fertility.The United Nations General Assembly had in December 2013 declared December 5, 2014 as the World Soil Day and it was formally marked throughout the world since then. Nepal has been observing the Day since 2015. The theme of the World Soil Day this year is 'Soils: where food begins.' Soil is at the heart of all agricultural activities, food security, nutrition security and climate conservation.
 The World Soil Day programme reiterates the importance of soil for mankind and the crucial need for its conservation and proper management while at the same time increasing its fertility, the Department of Agriculture said.Director General of the Department, Dr Rewati Raman Poudel said that the debate about food and nutritional security, sustainable agriculture development, conservation of bio-diversity and organic agriculture will have no meaning without the conservation, promotion and proper management of soil.
@@ -16,8 +14,8 @@ out_final = extractandfeature(sample_str, 0.8)
 
 significant_words = out_final['significant_words']
 extract_summ = out_final['summary']
-# abstract_summ = abs_summary(extract_summ)
+abs_summ = out_final['abs_summ']
 
 print(significant_words)
 print(extract_summ)
-# print(abstract_summ)
+print(abs_summ)
