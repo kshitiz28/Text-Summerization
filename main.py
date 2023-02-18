@@ -10,7 +10,8 @@ Soil degradation induces some soils to be nutrient depleted losing their capacit
 World Soil Day 2022 and its campaign "Soils: Where food begins" aims to raise awareness of the importance of maintaining healthy ecosystems and human well-being by addressing the growing challenges in soil management, increasing soil awareness and encouraging societies to improve soil health.
 """
 
-out_final = extractandfeature(sample_str, 0.8)
+
+out_final = extractandfeature(sample_str, 0.2)
 
 significant_words = out_final['significant_words']
 extract_summ = out_final['summary']
