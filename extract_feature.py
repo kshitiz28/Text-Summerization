@@ -30,20 +30,28 @@ def extractandfeature(name,compression):
         for j in range(len(doc_test[i])):
             final_doc.append(doc_test[i][j])
 
+    str_lower = name.lower()
+
+
+    final_doc1 = []
+    for i in range(len(doc_test)):
+        for j in range(len(doc_test[i])):
+            final_doc1.append(doc_test[i][j])
+
+
+    without_P = []
+    for i in final_doc1:
+        filtered_sentence = i.translate(str.maketrans('', '', string.punctuation))
+        without_P.append(filtered_sentence)
+
     without_stopwords = []
-    for i in final_doc:
+    for i in without_P:
         filtered_sentence = remove_stopwords(i)
         without_stopwords.append(filtered_sentence)
-
-    without_SandP = []
-    for i in without_stopwords:
-        filtered_sentence = i.translate(
-            str.maketrans('', '', string.punctuation))
-        without_SandP.append(filtered_sentence)
-
+    
     vectorizer = CountVectorizer()
 
-    bag_of_words = vectorizer.fit_transform(without_SandP)
+    bag_of_words = vectorizer.fit_transform(without_stopwords)
     bag_of_words.todense()
     svd = TruncatedSVD(n_components=1)
     lsa = svd.fit_transform(bag_of_words)
@@ -74,7 +82,7 @@ def extractandfeature(name,compression):
     final_conclusion = []
     for i in range(len(final_doc)):
         for j in range(len(words_after_compression)):
-            if words_after_compression[j] in final_doc[i]:
+            if words_after_compression[j] in final_doc[i].lower():
                 final_conclusion.append(final_doc[i])
 
     list_final = list(set(final_conclusion))
