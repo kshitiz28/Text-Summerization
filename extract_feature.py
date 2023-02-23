@@ -17,9 +17,9 @@ def abs_summary(article):
     return abs_summ
 
 
-def extractandfeature(name,compression):
+def extractandfeature(name, compression):
 
-    lines=name.split(".")
+    lines = name.split(".")
 
     doc_test = []
     for i in range(len(lines)):
@@ -32,23 +32,22 @@ def extractandfeature(name,compression):
 
     str_lower = name.lower()
 
-
     final_doc1 = []
     for i in range(len(doc_test)):
         for j in range(len(doc_test[i])):
             final_doc1.append(doc_test[i][j])
 
-
     without_P = []
     for i in final_doc1:
-        filtered_sentence = i.translate(str.maketrans('', '', string.punctuation))
+        filtered_sentence = i.translate(
+            str.maketrans('', '', string.punctuation))
         without_P.append(filtered_sentence)
 
     without_stopwords = []
     for i in without_P:
         filtered_sentence = remove_stopwords(i)
         without_stopwords.append(filtered_sentence)
-    
+
     vectorizer = CountVectorizer()
 
     bag_of_words = vectorizer.fit_transform(without_stopwords)
@@ -77,7 +76,6 @@ def extractandfeature(name,compression):
         words_after_compression.append(index_list[1])
     else:
         words_after_compression.extend(index_list)
-
 
     final_conclusion = []
     for i in range(len(final_doc)):
