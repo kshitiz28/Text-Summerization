@@ -69,10 +69,10 @@ def extractandfeature(name, compression):
 
     words_after_compression = []
     if compression <= 0.33:
-        words_after_compression.append(index_list[0])
+        words_after_compression.append(index_list[2])
     elif compression <= 0.66 and compression > 0.33:
-        words_after_compression.append(index_list[0])
-        words_after_compression.append(index_list[1])
+        words_after_compression.append(index_list[2])
+        words_after_compression.append(index_list[3])
     else:
         words_after_compression.extend(index_list)
 
